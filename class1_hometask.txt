@@ -1,0 +1,43 @@
+2. Создать пользователя и базу данных.
+
+3. В таблицу из пункта 3 вставить не менее трех строк. SQL-запрос на вставку добавить в текстовый файл
+class1_hometask.txt
+
+CREATE TABLE users (
+    id bigserial not null primary key,
+    birthday date,
+    email varchar not null unique,
+    encrypted_password varchar not null 
+);
+
+4. В таблицу из пункта 3 вставить не менее трех строк. SQL-запрос на вставку добавить в текстовый файл
+class1_hometask.txt.
+
+INSERT INTO users (id, birthday, email, encrypted_password) VALUES
+(1,'1980-01-01', 'test@mail.ru', 'password'),
+(2, '2000-12-03', 'new@yandex.ru', 'pass'),
+(3, '1998-05-10','next@list.ru', 'newpass');
+
+5. Используя мета-команды psql, вывести список всех сущностей в базе данных из пункта 2. 
+Полученный список сущностей добавить в текстовый файл class1_hometask.txt
+
+List of relations
+ Schema | Name  | Type  | Owner  
+--------+-------+-------+--------
+ public | users | table | myuser
+
+
+Table "public.users"
+       Column       |       Type        | Collation | Nullable |              Default              
+--------------------+-------------------+-----------+----------+-----------------------------------
+ id                 | bigint            |           | not null | nextval('users_id_seq'::regclass)
+ birthday           | date              |           |          | 
+ email              | character varying |           | not null | 
+ encrypted_password | character varying |           | not null | 
+Indexes:
+    "users_pkey" PRIMARY KEY, btree (id)
+    "users_email_key" UNIQUE CONSTRAINT, btree (email)
+
+6. Придумать проект, над которым вы будете работать на последующих уроках. Сам тестовый проект описан
+в readme.md.
+
